@@ -46,6 +46,7 @@ class TvShowViewModel @Inject constructor(
                     insertAllMeteors(tvShowsListByPage)
                     delay(2000)
                     obsevableLoading.set(false)
+                    errorMessage.set("")
                 } else {
                     obsevableLoading.set(false)
                     errorMessage.set("Error Occurred!")
@@ -67,6 +68,7 @@ class TvShowViewModel @Inject constructor(
                 tvShowsListByPage = listTvShowsFromDb as ArrayList<TvShowData>
                 emit(ResponseState.success(tvShowsListByPage))
                 obsevableLoading.set(false)
+                errorMessage.set("")
             } catch (exception: Exception) {
                 obsevableLoading.set(false)
                 errorMessage.set(exception.message ?: "Error Occurred!")
@@ -78,11 +80,13 @@ class TvShowViewModel @Inject constructor(
         }
     }
 
-    fun filterTvShow(filterData: FilterData) =
-        tvShowsListByPage.filter {
-            (filterData.language.isEmpty() || filterData.language == it.original_language) && filterData.voteAverage > it.vote_average && filterData.popularity >= it.popularity
+    fun filterTvShow(filterData: FilterData): List<TvShowData> {
+        val filteredItems = tvShowsListByPage.filter {
+            (filterData.language.isEmpty() || filterData.language == it.original_language) && filterData.voteAverage <= it.vote_average  && filterData.popularity <= it.popularity
         }
-
+        if(filteredItems.isEmpty()) errorMessage.set("No Data Found")
+        return filteredItems
+    }
     fun sortTvShow(filter: Int) = when (filter) {
         AppConstant.SORT_BY_POPULARITY -> {
             filterType = filter
@@ -146,6 +150,5 @@ class TvShowViewModel @Inject constructor(
             }
         }
     }
-
     fun isValidMeteorList() = super.isValidTvShowList(tvShowsListByPage)
 }

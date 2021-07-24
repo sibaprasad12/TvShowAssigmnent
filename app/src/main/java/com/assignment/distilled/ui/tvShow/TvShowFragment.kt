@@ -81,8 +81,13 @@ class TvShowFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener, MovieCl
     private fun filterTvShow(filterData: FilterData) {
         listMeteors.clear()
         listMeteors.addAll(viewModel.filterTvShow(filterData))
-        adapter.setTvSHowList(listMeteors)
-        adapter.notifyDataSetChanged()
+        if (listMeteors.isEmpty()) {
+            binding.recyclerViewMeteor.visibility = View.GONE
+        } else {
+            binding.recyclerViewMeteor.visibility = View.VISIBLE
+            adapter.setTvSHowList(listMeteors)
+            adapter.notifyDataSetChanged()
+        }
     }
 
     private fun showFilterBottomSheetDialog() {
@@ -98,52 +103,55 @@ class TvShowFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener, MovieCl
         val buttonClear = bottomSheetDialog.findViewById<AppCompatButton>(R.id.buttonClear)
         val appCompatButtonApply = bottomSheetDialog.findViewById<AppCompatButton>(R.id.buttonApply)
 
+        var popularity = 0
+        var voteAverage = 0
+        var language = ""
+
+        radioGroupPopularity?.setOnCheckedChangeListener { _, checkedId ->
+            popularity = when (checkedId) {
+                R.id.radioButtonHighPopularity -> AppConstant.FILTER_POPULARITY_HIGH
+                R.id.radioButtonMidPopularity -> AppConstant.FILTER_POPULARITY_MED
+                R.id.radioButtonLowPopularity -> AppConstant.FILTER_POPULARITY_LOW
+                else -> {
+                    AppConstant.DEFAULT
+                }
+            }
+        }
+
+        radioGroupVoteAverage?.setOnCheckedChangeListener { _, checkedId ->
+            voteAverage = when (checkedId) {
+                R.id.radioButtonHighVote -> AppConstant.FILTER_VOTE_HIGH
+                R.id.radioButtonMidVote -> AppConstant.FILTER_VOTE_MID
+                R.id.radioButtonLowVote -> AppConstant.FILTER_VOTE_LOW
+                else -> {
+                    AppConstant.DEFAULT
+                }
+            }
+        }
+
+        radioGroupLanguage?.setOnCheckedChangeListener { _, checkedId ->
+            language = when (checkedId) {
+                R.id.radioButtonEnglish -> AppConstant.FILTER_LANGUAGE_EN
+                R.id.radioButtonJapaneese -> AppConstant.FILTER_LANGUAGE_JA
+                R.id.radioButtonOthers -> AppConstant.FILTER_LANGUAGE_OTHER
+                else -> {
+                    ""
+                }
+            }
+        }
         appCompatButtonApply?.setOnClickListener {
-            var popularity = 0
-            var voteAverage = 0
-            var language = ""
-
-            radioGroupPopularity?.setOnCheckedChangeListener { _, checkedId ->
-                popularity = when (checkedId) {
-                    R.id.radioButtonHighPopularity -> AppConstant.FILTER_POPULARITY_HIGH
-                    R.id.radioButtonMidPopularity -> AppConstant.FILTER_POPULARITY_MED
-                    R.id.radioButtonLowPopularity -> AppConstant.FILTER_POPULARITY_LOW
-                    else -> {
-                        AppConstant.DEFAULT
-                    }
-                }
-            }
-
-            radioGroupVoteAverage?.setOnCheckedChangeListener { _, checkedId ->
-                voteAverage = when (checkedId) {
-                    R.id.radioButtonHighVote -> AppConstant.FILTER_VOTE_HIGH
-                    R.id.radioButtonMidVote -> AppConstant.FILTER_VOTE_MID
-                    R.id.radioButtonLowVote -> AppConstant.FILTER_VOTE_LOW
-                    else -> {
-                        AppConstant.DEFAULT
-                    }
-                }
-            }
-
-            radioGroupLanguage?.setOnCheckedChangeListener { _, checkedId ->
-                language = when (checkedId) {
-                    R.id.radioButtonEnglish -> AppConstant.FILTER_LANGUAGE_EN
-                    R.id.radioButtonJapaneese -> AppConstant.FILTER_LANGUAGE_JA
-                    R.id.radioButtonOthers -> AppConstant.FILTER_LANGUAGE_OTHER
-                    else -> {
-                        ""
-                    }
-                }
-            }
-
             filterTvShow(FilterData(language, voteAverage, popularity))
-
             bottomSheetDialog.dismiss()
         }
         buttonClear?.setOnClickListener {
             radioGroupPopularity?.clearCheck()
             radioGroupVoteAverage?.clearCheck()
             radioGroupLanguage?.clearCheck()
+            popularity = 0
+            voteAverage = 0
+            language = ""
+            fetchPopularTvShows(true)
+            bottomSheetDialog.dismiss()
         }
         bottomSheetDialog.show()
     }
@@ -206,6 +214,7 @@ class TvShowFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener, MovieCl
             it.let { resource ->
                 when (resource.status) {
                     Status.SUCCESS -> {
+                        binding.recyclerViewMeteor.visibility = View.VISIBLE
                         adapter.setTvSHowList(resource.data as ArrayList<TvShowData>)
                         adapter.notifyDataSetChanged()
                         isLoading = false
