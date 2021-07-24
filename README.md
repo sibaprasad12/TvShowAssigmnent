@@ -74,22 +74,22 @@ chronologically etc.
 <table>
 <tr>
 <td>
-  <img src="https://github.com/sibaprasad12/TvShowAssigmnent/blob/main/app/images/ss1.png" width="130" height="240" />
+  <img src="https://github.com/sibaprasad12/TvShowAssigmnent/blob/main/app/images/ss1.png" width="150" height="270" />
  </td>
 <td>
- <img src="https://github.com/sibaprasad12/TvShowAssigmnent/blob/main/app/images/ss2.png" width="130" height="240"/> 
+ <img src="https://github.com/sibaprasad12/TvShowAssigmnent/blob/main/app/images/ss2.png" width="150" height="270"/> 
 </td>
   <td>
-  <img src="https://github.com/sibaprasad12/TvShowAssigmnent/blob/main/app/images/ss3.png" width="130" height="240" />
+  <img src="https://github.com/sibaprasad12/TvShowAssigmnent/blob/main/app/images/ss3.png" width="150" height="270" />
  </td>
    <td>
-  <img src="https://github.com/sibaprasad12/TvShowAssigmnent/blob/main/app/images/ss6.png" width="130" height="240" />
+  <img src="https://github.com/sibaprasad12/TvShowAssigmnent/blob/main/app/images/ss6.png" width="150" height="270" />
  </td>
   <td>
-  <img src="https://github.com/sibaprasad12/TvShowAssigmnent/blob/main/app/images/ss4.png" width="130" height="230" />
+  <img src="https://github.com/sibaprasad12/TvShowAssigmnent/blob/main/app/images/ss4.png" width="150" height="270" />
  </td>
 <td>
- <img src="https://github.com/sibaprasad12/TvShowAssigmnent/blob/main/app/images/ss5.png" width="130" height="240"/> 
+ <img src="https://github.com/sibaprasad12/TvShowAssigmnent/blob/main/app/images/ss5.png" width="150" height="270"/> 
 </td>
 </tr>
 </table> 
