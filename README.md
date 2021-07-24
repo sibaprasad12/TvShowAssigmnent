@@ -79,15 +79,15 @@ chronologically etc.
   <td>
   <img src="https://github.com/sibaprasad12/TvShowAssigmnent/blob/main/app/images/ss3.png" width="130" height="250" />
  </td>
+   <td>
+  <img src="https://github.com/sibaprasad12/TvShowAssigmnent/blob/main/app/images/ss6.png" width="130" height="250" />
+ </td>
   <td>
   <img src="https://github.com/sibaprasad12/TvShowAssigmnent/blob/main/app/images/ss4.png" width="130" height="250" />
  </td>
 <td>
  <img src="https://github.com/sibaprasad12/TvShowAssigmnent/blob/main/app/images/ss5.png" width="130" height="250"/> 
 </td>
-  <td>
-  <img src="https://github.com/sibaprasad12/TvShowAssigmnent/blob/main/app/images/ss6.png" width="130" height="250" />
- </td>
 </tr>
 </table> 
 
