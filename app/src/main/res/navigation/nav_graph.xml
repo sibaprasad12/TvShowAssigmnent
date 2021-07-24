@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav_graph"
+    app:startDestination="@id/launcherFragment">
+
+    <fragment
+        android:id="@+id/launcherFragment"
+        android:name="com.assignment.distilled.ui.LauncherFragment"
+        android:label="LauncherNavFragment"
+        tools:layout="@layout/fragment_launcher">
+        <action
+            android:id="@+id/action_launcher_to_home"
+            app:destination="@id/tvShowTabFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/tvShowTabFragment"
+        android:name="com.assignment.distilled.ui.tabbedFragment.HomeTabbedFragment"
+        android:label="Tv Show Fragment"
+        tools:layout="@layout/fragment_tabbed_fragment">
+
+    </fragment>
+
+</navigation>

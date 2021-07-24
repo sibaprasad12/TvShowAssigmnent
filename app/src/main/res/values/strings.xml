@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">MovieAssignment</string>
+    <string name="api_key">ef566fcdc1d67d697193c20688128c9d</string>
+    <string name="movie_name">25a8f80ba018b52efb64f05140f6b43c</string>
+    <string name="filter">Filter</string>
+    <string name="filter_title">Filter Tv Show</string>
+    <string name="filter_name">By Name</string>
+    <string name="filter_date">By First Air Date</string>
+    <string name="filter_date_desc">By First Air Date Descending</string>
+    <string name="filter_popularity">Popularity</string>
+    <string name="filter_vote_average">Vote Average</string>
+    <string name="filter_vote_average_desc">By Vote Average Desc</string>
+    <string name="filter_vote_count">"Vote Count "</string>
+    <string name="filter_vote_count_desc">By Vote Count Descending</string>
+    <string name="apply_filter">Apply Filter</string>
+    <string name="apply_sort">Apply Sort</string>
+    <string name="tvshow_details">Tv Show Details</string>
+    <string name="launcher_fragment">Launcher</string>
+    <string name="tv_popular_show">Popular TV Shows</string>
+    <string name="title_tvshow">Tv Shows</string>
+    <string name="title_favourites">Favorite Shows</string>
+    <string name="filter_clear">Clear Filter</string>
+    <string name="go">GO</string>
+    <string name="sort_title">Sort TvShows</string>
+</resources>

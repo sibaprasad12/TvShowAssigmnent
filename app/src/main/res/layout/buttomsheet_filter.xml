@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvFilterTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_10dp"
+        android:text="@string/filter_title"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvPopularity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/filter_popularity"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvFilterTitle" />
+
+    <RadioGroup
+        android:id="@+id/radioGroupPopularity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvPopularity">
+
+        <RadioButton
+            android:id="@+id/radioButtonLowPopularity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Low Popularity" />
+
+        <RadioButton
+            android:id="@+id/radioButtonMidPopularity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mid Popularity" />
+
+        <RadioButton
+            android:id="@+id/radioButtonHighPopularity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="High Popularity" />
+
+    </RadioGroup>
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvVoteAverage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/filter_vote_average"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroupPopularity" />
+
+
+    <RadioGroup
+        android:id="@+id/radioGroupVoteAverage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvVoteAverage">
+
+        <RadioButton
+            android:id="@+id/radioButtonLowVote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Low Vote" />
+
+        <RadioButton
+            android:id="@+id/radioButtonMidVote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mid Vote" />
+
+        <RadioButton
+            android:id="@+id/radioButtonHighVote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="High Vote" />
+
+    </RadioGroup>
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvLanguage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:text="Language"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroupVoteAverage" />
+
+
+    <RadioGroup
+        android:id="@+id/radioGroupLanguage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvLanguage">
+
+        <RadioButton
+            android:id="@+id/radioButtonEnglish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="English" />
+
+        <RadioButton
+            android:id="@+id/radioButtonJapaneese"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Japaneese" />
+
+        <RadioButton
+            android:id="@+id/radioButtonOthers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Other" />
+
+    </RadioGroup>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonApply"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="2dp"
+        android:background="@drawable/rounded_button"
+        android:text="@string/apply_filter"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toStartOf="@+id/buttonClear"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroupLanguage" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonClear"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:background="@drawable/rounded_button"
+        android:text="@string/filter_clear"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttonApply"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroupLanguage" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
