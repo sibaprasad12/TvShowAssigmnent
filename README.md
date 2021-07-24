@@ -1,4 +1,4 @@
-# Movie assignment
+# Top Tv Show assignment
 
 >> Check the screenshots and GIF image of the app at the bottom of the page
 
@@ -29,7 +29,8 @@ chronologically etc.
 ## Feature Implemented
 - Lazy Loading
 - Pull to refresh
-- Filter TvShow by Name, air date, vote count, popularity etc
+- Sort TvShow by Name, air date, vote count, popularity etc
+- Filter TvShow by language, popularity, vote average etc
 - DIFF Utils to ease loading
 - Storing in room database
 - Unit test cases
@@ -64,29 +65,31 @@ chronologically etc.
 - Click Add to Favourite or remove 
 - Scroll doan the list to load more items
 - Click on the filter FAB icon at the bottom right
-- It will display filter TvShows by Name, Weight, Date etc
+- It will display filtered TvShows by Popularity, vote average, language
+- Click on the filter FAB icon at the bottom left
+- It will display Sort TvShows by Tvshow Name, Popularity, Air date, Vote average, vote count
 
 
 ## Here is the screen shot and Gif image for the application
 <table>
 <tr>
 <td>
-  <img src="https://github.com/sibaprasad12/TvShowAssigmnent/blob/main/app/images/ss1.png" width="130" height="250" />
+  <img src="https://github.com/sibaprasad12/TvShowAssigmnent/blob/main/app/images/ss1.png" width="130" height="240" />
  </td>
 <td>
- <img src="https://github.com/sibaprasad12/TvShowAssigmnent/blob/main/app/images/ss2.png" width="130" height="250"/> 
+ <img src="https://github.com/sibaprasad12/TvShowAssigmnent/blob/main/app/images/ss2.png" width="130" height="240"/> 
 </td>
   <td>
-  <img src="https://github.com/sibaprasad12/TvShowAssigmnent/blob/main/app/images/ss3.png" width="130" height="250" />
+  <img src="https://github.com/sibaprasad12/TvShowAssigmnent/blob/main/app/images/ss3.png" width="130" height="240" />
  </td>
    <td>
-  <img src="https://github.com/sibaprasad12/TvShowAssigmnent/blob/main/app/images/ss6.png" width="130" height="250" />
+  <img src="https://github.com/sibaprasad12/TvShowAssigmnent/blob/main/app/images/ss6.png" width="130" height="240" />
  </td>
   <td>
-  <img src="https://github.com/sibaprasad12/TvShowAssigmnent/blob/main/app/images/ss4.png" width="130" height="250" />
+  <img src="https://github.com/sibaprasad12/TvShowAssigmnent/blob/main/app/images/ss4.png" width="130" height="230" />
  </td>
 <td>
- <img src="https://github.com/sibaprasad12/TvShowAssigmnent/blob/main/app/images/ss5.png" width="130" height="250"/> 
+ <img src="https://github.com/sibaprasad12/TvShowAssigmnent/blob/main/app/images/ss5.png" width="130" height="240"/> 
 </td>
 </tr>
 </table> 
