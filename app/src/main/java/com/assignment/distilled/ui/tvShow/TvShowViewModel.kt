@@ -32,7 +32,7 @@ class TvShowViewModel @Inject constructor(
 
     private var currentPage = 0
     private var filterType = DEFAULT
-    private var tvShowsListByPage = ArrayList<TvShowData>()
+    var tvShowsListByPage = ArrayList<TvShowData>()
     private var tvShowListFilter: List<TvShowData> = listOf()
 
     fun getTvShows(isRefresh: Boolean = false) = liveData(Dispatchers.IO) {
@@ -43,7 +43,7 @@ class TvShowViewModel @Inject constructor(
                 if (it.isSuccessful) {
                     tvShowsListByPage = it.body()?.results as ArrayList<TvShowData>
                     emit(ResponseState.success(tvShowsListByPage))
-                    insertAllMeteors(tvShowsListByPage)
+                    insertAllTvShows(tvShowsListByPage)
                     delay(2000)
                     obsevableLoading.set(false)
                     errorMessage.set("")
@@ -81,12 +81,45 @@ class TvShowViewModel @Inject constructor(
     }
 
     fun filterTvShow(filterData: FilterData): List<TvShowData> {
-        val filteredItems = tvShowsListByPage.filter {
-            (filterData.language.isEmpty() || filterData.language == it.original_language) && filterData.voteAverage <= it.vote_average  && filterData.popularity <= it.popularity
+        if (filterData.language.isNotEmpty() && filterData.popularity != 0 && filterData.voteAverage != 0) {
+            val filteredItems = tvShowsListByPage.filter {
+                (filterData.language.isEmpty() || filterData.language == it.original_language) && filterData.voteAverage <= it.vote_average && filterData.popularity <= it.popularity
+            }
+            if (filteredItems.isEmpty()) errorMessage.set("No Data Found")
+            return filteredItems
+        } else {
+            var filterDataList: List<TvShowData>? = null
+            if (filterData.language.isNotEmpty()) {
+                filterDataList = filterTvShowByLanguage(filterData.language)
+            } else if (filterData.popularity > 0) {
+                filterDataList = filterTvShowByPopularity(filterData.popularity)
+            } else {
+                filterDataList = filterTvShowByVote(filterData.voteAverage)
+            }
+            if (filterDataList.isEmpty()) errorMessage.set("No Data Found")
+            return filterDataList
         }
-        if(filteredItems.isEmpty()) errorMessage.set("No Data Found")
-        return filteredItems
+
     }
+
+    private fun filterTvShowByLanguage(language: String): List<TvShowData> {
+        return tvShowsListByPage.filter {
+            language == it.original_language
+        }
+    }
+
+    fun filterTvShowByPopularity(popularity: Int): List<TvShowData> {
+        return tvShowsListByPage.filter {
+            popularity <= it.popularity
+        }
+    }
+
+    fun filterTvShowByVote(voteAverage: Int): List<TvShowData> {
+        return tvShowsListByPage.filter {
+            voteAverage <= it.vote_average
+        }
+    }
+
     fun sortTvShow(filter: Int) = when (filter) {
         AppConstant.SORT_BY_POPULARITY -> {
             filterType = filter
@@ -124,7 +157,7 @@ class TvShowViewModel @Inject constructor(
         }
     }
 
-    fun insertFavoriteMeteors(tvshow: TvShowData) {
+    fun insertFavoriteTvShow(tvshow: TvShowData) {
         if (isValidTvShow(tvshow)) {
             tvshow.isFavourite = 1
             CoroutineScope(Dispatchers.IO).launch {
@@ -138,7 +171,7 @@ class TvShowViewModel @Inject constructor(
         }
     }
 
-    private fun insertAllMeteors(tvshows: List<TvShowData>) {
+    private fun insertAllTvShows(tvshows: List<TvShowData>) {
         if (isValidTvShowList(tvshows)) {
             CoroutineScope(Dispatchers.IO).launch {
                 try {
@@ -150,5 +183,4 @@ class TvShowViewModel @Inject constructor(
             }
         }
     }
-    fun isValidMeteorList() = super.isValidTvShowList(tvShowsListByPage)
 }

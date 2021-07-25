@@ -24,7 +24,7 @@ import java.io.IOException
  * sp.dobest@gmail.com
  */
 
-class MeteorDatabaseTest : TestCase() {
+class TvShowDatabaseTest : TestCase() {
 
     private lateinit var tvShowDao: TvShowDao
     private lateinit var db: AppDatabase

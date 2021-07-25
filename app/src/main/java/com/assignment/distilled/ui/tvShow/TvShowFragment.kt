@@ -267,7 +267,7 @@ class TvShowFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener, MovieCl
     }
 
     override fun onFevouriteClick(tvShowData: TvShowData) {
-        viewModel.insertFavoriteMeteors(tvShowData)
+        viewModel.insertFavoriteTvShow(tvShowData)
         tvShowData.isFavourite = if (tvShowData.isFavourite > 0) 1 else 0
         adapter.notifyItemChanged(tvShowData.position, tvShowData)
     }
