@@ -1,8 +1,8 @@
-package com.assignment.meteoriteapp.di
+package com.assignment.distilled.di
 
 import android.content.Context
 import androidx.room.Room
-import com.assignment.meteoriteapp.database.AppDatabase
+import com.assignment.distilled.database.AppDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

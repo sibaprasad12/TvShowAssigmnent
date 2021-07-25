@@ -1,10 +1,8 @@
-package com.assignment.meteoriteapp.database
+package com.assignment.distilled.database
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.test.filters.SmallTest
 import com.assignment.distilled.data.AndroidTestData
-import com.assignment.distilled.database.AppDatabase
-import com.assignment.distilled.database.TvShowDao
 import com.google.common.truth.Truth.assertThat
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest

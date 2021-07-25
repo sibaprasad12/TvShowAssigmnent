@@ -10,6 +10,7 @@ import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
+import java.util.*
 
 class TvShowViewModelTest {
 
@@ -73,7 +74,7 @@ class TvShowViewModelTest {
     fun sortTvshowsByAirDate() {
         viewModel.tvShowsListByPage = UnitTestData.getTvShowList()
         val filteredData = viewModel.sortTvShow(AppConstant.SORT_AIR_DATE)
-        assertTrue(filteredData[0].first_air_date < filteredData[1].first_air_date)
+        assertTrue(Date(filteredData[0].first_air_date).before(Date(filteredData[1].first_air_date)))
     }
 
     // written in androidTest case

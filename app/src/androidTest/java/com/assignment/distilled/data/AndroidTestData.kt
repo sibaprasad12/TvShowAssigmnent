@@ -1,8 +1,5 @@
 package com.assignment.distilled.data
 
-import com.assignment.distilled.data.TvShowData
-
-
 /**
  * Created by Sibaprasad Mohanty on 23/07/21.
  * Spm Limited
